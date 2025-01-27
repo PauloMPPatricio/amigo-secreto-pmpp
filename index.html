@@ -11,8 +11,10 @@
 </head>
 
 <body>
+    <!-- Estrutura principal da página contendo o banner, entrada de nomes e lista de amigos.-->
     <main class="main-content">
         <header class="header-banner">
+            <!-- Título principal que descreve o propósito da aplicação. -->
             <h1 class="main-title">Amigo Secreto</h1>
             <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
         </header>
@@ -20,15 +22,17 @@
         <section class="input-section">
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
             <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
+                <input type="text" id="friendInput" class="input-name" placeholder="Digite um nome">
+                <!-- Botão que chama a função para adicionar um amigo à lista. -->
+                <button class="button-add" onclick="addFriend()">Adicionar</button>
             </div>
            
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+            <ul id="friendList" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
+            <ul id="drawResult" class="result-list" aria-live="polite"></ul>
 
             <div class="button-container">
-                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
+                <!-- Botão que sorteia o amigo secreto. -->
+                <button class="button-draw" onclick="drawFriend()" aria-label="Sortear amigo secreto">
                     <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
                     Sortear amigo
                 </button>

@@ -1,3 +1,4 @@
+/* Paleta de cores da aplicação */
 :root {
     --color-primary: #4B69FD;
     --color-secondary: #FFF9EB;
@@ -8,7 +9,7 @@
     --color-white: #FFFFFF;
 }
 
-/* Estilos gerais */
+/* Reset e configurações globais */
 * {
     margin: 0;
     padding: 0;
@@ -125,7 +126,7 @@ button {
     background-color: #a1a1a1;
 }
 
-/* Listas */
+/* Estilização das listas de amigos e resultados */
 ul {
     list-style-type: none;
     color: var(--color-text);
@@ -142,7 +143,7 @@ ul {
     text-align: center;
 }
 
-/* Botão de sortear título */
+/* Botão de ação para sortear um amigo secreto */
 .button-draw {
     display: flex;
     align-items: center;
@@ -157,6 +158,7 @@ ul {
     margin-right: 40px;
 }
 
+/* Alteração visual ao passar o cursor sobre o botão de adicionar */
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
