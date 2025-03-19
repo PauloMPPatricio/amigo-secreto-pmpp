@@ -61,6 +61,8 @@ Um aplicativo interativo para facilitar a organização de sorteios de amigo sec
 
 3. Abra o arquivo `index.html` em um navegador.
 
+4. Direto pelo link do GitHub Pages: [App Amigo Secreto](https://paulomppatricio.github.io/amigo-secreto-pmpp)
+
 ---
 
 ## 📖 Uso Envio Manual / Atomático EmailJS

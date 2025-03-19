@@ -213,7 +213,7 @@ function sendEmailMessages() {
                 to_name: participant.name, // Nome do participante
                 assigned_name: assigned.name, // Nome do amigo secreto
                 // Link personalizado com o resultado do sorteio.
-                assigned_link: `http://127.0.0.1:5500/amigo-secreto.html?nome=${encodeURIComponent(participant.name)}` // Link personalizado com o resultado do sorteio.
+                assigned_link: `https://paulomppatricio.github.io/amigo-secreto-pmpp/amigo-secreto.html?nome=${encodeURIComponent(participant.name)}` // Link personalizado com o resultado do sorteio.
             };
 
             console.log("📧 Preparando e-mail para:", participant.name);
@@ -291,7 +291,7 @@ function showResultLinks() {
         const assigned = assignedPairs[participant.name];
 
         if (assigned) {
-            const resultLink = `http://127.0.0.1:5500/amigo-secreto.html?nome=${encodeURIComponent(participant.name)}`;
+            const resultLink = `https://paulomppatricio.github.io/amigo-secreto-pmpp/amigo-secreto.html?nome=${encodeURIComponent(participant.name)}`;
             const linkElement = document.createElement("p");
             linkElement.innerHTML = `<strong>${participant.name}:</strong> <a href="${resultLink}" target="_blank">Ver Amigo Secreto</a>`;
             resultSection.appendChild(linkElement);
