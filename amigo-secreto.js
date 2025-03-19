@@ -1,20 +1,22 @@
+// Função para obter parâmetros da URL
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
-    console.log("Parâmetros da URL:", urlParams.toString()); // Verifique os parâmetros
     return urlParams.get(param);
 }
 
-const assignedPairs = JSON.parse(localStorage.getItem("assignedPairs")) || {};
-console.log("Dados do localStorage:", assignedPairs);
-
+// Obtém os valores da URL
 const participantName = getQueryParam("nome");
-console.log("Nome do participante:", participantName);
+const secretFriend = getQueryParam("amigo");
 
-if (!Object.keys(assignedPairs).length) {
-    document.getElementById("result-section").innerHTML = "<p>⚠️ O sorteio ainda não foi realizado. Tente novamente mais tarde.</p>";
-} else if (participantName && assignedPairs[participantName]) {
+// Seleciona a seção onde o resultado será exibido
+const resultSection = document.getElementById("result-section");
+
+// Verifica se os parâmetros estão presentes
+if (participantName && secretFriend) {
+    // Atualiza a página com os nomes corretos
     document.getElementById("participant-name").textContent = participantName;
-    document.getElementById("secret-friend").textContent = assignedPairs[participantName].name;
+    document.getElementById("secret-friend").textContent = secretFriend;
 } else {
-    document.getElementById("result-section").innerHTML = "<p>❌ Erro: Participante não encontrado.</p>";
+    // Se os parâmetros não estiverem na URL, exibe uma mensagem de erro
+    resultSection.innerHTML = "<p>⚠️ O sorteio ainda não foi realizado ou os dados estão incorretos. Tente novamente mais tarde.</p>";
 }
