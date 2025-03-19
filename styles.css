@@ -1,0 +1,259 @@
+/* Paleta de cores da aplicação */
+:root {
+    --color-primary: #4B69FD;
+    --color-secondary: #FFF9EB;
+    --color-tertiary: #C4C4C4;
+    --color-button: #fe652b;
+    --color-button-hover: #e55720;
+    --color-text: #444444;
+    --color-white: #FFFFFF;
+}
+
+/* Reset e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--color-secondary);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    min-height: 100px;
+}
+
+/* Ajusta dinamicamente a altura conforme novos itens são adicionados */
+.name-list {
+    max-height: 400px;
+    overflow-y: auto;
+    display: none; /* Inicialmente oculta */
+}
+
+/* Exibir lista apenas quando houver itens */
+.name-list.show {
+    display: block;
+}
+
+/* Estilo do título da lista de participantes */
+#friendListTitle {
+    display: none;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#confirmedFriendList {
+    display: none; /* Inicialmente oculto */
+}
+
+#final-list.show #confirmedFriendList {
+    display: block; /* Exibir a lista quando a seção for ativada */
+    align-items: center; /* 🔹 Garante que os elementos fiquem centralizados */
+    justify-content: center;
+    text-align: center;
+}
+
+/* Títulos */
+.main-title {
+    font-size: 48px;
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.section-title {
+    font-family: "Inter", serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Header */
+.header-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.header-banner img {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
+    display: block;
+    margin: auto;
+}
+
+/* Seções */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 🔹 Centraliza todos os elementos dentro da seção */
+    justify-content: center; /* 🔹 Alinha verticalmente */
+    padding: 20px;
+    margin-bottom: 20px;
+    background: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#participant-entry {
+    display: block;
+}
+
+/* Entrada de dados */
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.input-name {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Garante que a seção de resultado seja exibida */
+#result-section {
+    display: block;
+}
+
+.delete-button {
+    width: auto;
+    max-width: 70px;
+    background-color: transparent;
+    color: red;
+    border: none;
+    padding: 2px 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.delete-button:hover {
+    background-color: transparent;
+    color: darkred;
+    text-decoration: underline;
+}
+
+
+/* Botões */
+button {
+    max-width: 300px;
+    width: 100%;
+    padding: 15px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: var(--color-button-hover);
+}
+
+.button-check {
+    margin: 5px 0;
+}
+
+.button-check:disabled {
+    background-color: var(--color-tertiary);
+    cursor: not-allowed;
+}
+
+.draw-button-wrapper,
+.send-button-wrapper, 
+.button-restart {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.button-draw,
+.button-check,
+.button-send,
+.button-restart {
+    background-color: var(--color-button);
+    color: var(--color-white);
+}
+
+.button-draw img {
+    margin-right: 10px;
+}
+
+.button-send:hover {
+    transform: scale(1.05);
+    background-color: var(--color-button-hover);
+}
+
+/* Listas */
+.name-list, .result-list {
+    list-style-type: none;
+    padding: 10px;
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    background: var(--color-white);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.name-list li, .result-list li {
+    font-size: 18px;
+    padding: 5px;
+    color: var(--color-text);
+}
+
+/* Feedbacks Visuais */
+.input-error {
+    border: 2px solid red;
+}
+
+p {
+    font-size: 18px;
+    color: var(--color-text);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        max-width: 90%;
+    }
+}

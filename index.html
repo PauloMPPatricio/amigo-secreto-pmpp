@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -11,35 +12,74 @@
 </head>
 
 <body>
+
     <!-- Estrutura principal da página contendo o banner, entrada de nomes e lista de amigos.-->
     <main class="main-content">
+
+        <!-- 🔹 Cabeçalho, banner principal -->
         <header class="header-banner">
-            <!-- Título principal que descreve o propósito da aplicação. -->
             <h1 class="main-title">Amigo Secreto</h1>
             <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
         </header>
-        
-        <section class="input-section">
-            <h2 class="section-title">Digite o nome dos seus amigos</h2>
-            <div class="input-wrapper">
-                <input type="text" id="friendInput" class="input-name" placeholder="Digite um nome">
-                <!-- Botão que chama a função para adicionar um amigo à lista. -->
-                <button class="button-add" onclick="addFriend()">Adicionar</button>
-            </div>
-           
-            <ul id="friendList" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="drawResult" class="result-list" aria-live="polite"></ul>
 
-            <div class="button-container">
-                <!-- Botão que sorteia o amigo secreto. -->
-                <button class="button-draw" onclick="drawFriend()" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
-                    Sortear amigo
-                </button>
+        <!-- 🔹 Seção 1: Entrada de Dados e Criação da Lista -->
+        <section id="participant-entry">
+            <h2 class="section-title">Adicione os Participantes do Amigo Secreto</h2>
+            <div class="input-wrapper">
+                <input type="text" id="firstNameInput" class="input-name" placeholder="Digite o nome">
+                <input type="text" id="lastNameInput" class="input-name" placeholder="Digite o sobrenome">
+                <input type="email" id="emailInput" class="input-name" placeholder="E-mail">
+                <button class="button-check" onclick="addFriend()">➕ Adicionar</button>
+                <button class="button-check" id="concludeListButton" onclick="concludeList()" disabled>✅ Concluir Lista</button>
+            </div>
+            <h2 id="friendListTitle"></h2>
+            <ul id="friendList" class="name-list"></ul>
+        </section>
+
+        <!-- 🔹 Seção 2: Lista Finalizada e Botão para Iniciar Sorteio -->
+        <section id="final-list" style="display:none;">
+            <h2 class="section-title">Lista de Participantes</h2>
+            <ul id="confirmedFriendList" class="name-list"></ul>
+            <div class="draw-button-wrapper">
+                <button id="realizeDrawButton" class="button-draw" onclick="startDrawSession()">🎲 Realizar Sorteio</button>
+            </div>
+        </section>
+
+        <!-- 🔹 Seção 3: Envio de E-mails e Exibição do Sorteio -->
+        <section id="emailSendSection" style="display:none;">
+            <h2 class="section-title">Notificação aos Participantes</h2>
+            <p id="emailMessage""></p> <!-- Mensagem dinâmica -->
+            <div class="send-button-wrapper">
+                <!-- Um dos botões deverá sempre estar comentado -->
+                <button id="sendEmailMessages" class="button-send" onclick="sendEmailMessages()">📩 Enviar E-mails</button>
+                <!-- <button id="showResultLinks" class="button-send" onclick="showResultLinks()">🔗 Exibir Links de Resultado</button> -->
+            </div>
+        </section>
+
+        <!-- 🔹 Seção Final após envio de e-mails -->
+        <section id="finalMessageSection" style="display: none;">
+            <h2 class="section-title">📩 Verifique seu E-mail!</h2>
+            <p>Todos os participantes receberam um e-mail com o resultado do sorteio.</p>
+            <p>Obrigado por usar o <strong>Amigo Secreto</strong>! 🎉 Divirtam-se! 😃</p>
+            <div class="button-restart">
+                <button class="button-check" onclick="restartApp()">🔄 Novo Sorteio</button>
             </div>
         </section>
     </main>
+    <!--  Carrega e inicializa o EmailJS -->
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
 
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "9ZfHxcHCZpgaoIRDJ",
+            });
+        })();
+    </script>
+
+    <!-- Importação do script JavaScript -->
     <script src="app.js" defer></script>
 </body>
 </html>
